@@ -1,0 +1,15 @@
+<h2>My Heroes</h2>
+<div *ngIf="!heroes" class="ui loading form"></div>
+<div class="ui three stackable cards">
+  <div class="ui card" *ngFor="let hero of heroes">
+    <a class="image" [routerLink]="['/edit', hero.id]">
+    <img src="https://semantic-ui.com/images/avatar/large/elliot.jpg">
+  </a>
+    <div class="content">
+      <a class="header" [routerLink]="['/edit', hero.id]">{{hero.name}}</a>
+      <div class="meta">
+        Hero id is {{hero.id}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div *ngIf="selectedHero">
+  <h2>Selected Hero</h2>
+  <div class="ui massive horizontal divided list">
+    <div class="item">
+      <div class="right floated content">
+        <a (click)="goEdit()" class="ui button">View</a>
+      </div>
+      <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/small/christian.jpg">
+      <div class="content">
+        <div class="header">{{selectedHero.name}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2>My Heroes</h2>
+<div class="ui middle aligned selection list">
+  <div *ngIf="!heroes" class="ui loading form"></div>
+  <div class="item" *ngFor="let hero of heroes" (click)="onSelect(hero)" [ngClass]="{active: hero === selectedHero}">
+    <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/small/christian.jpg">
+    <div class="content">
+      <div class="header">{{hero.name}}</div>
+      {{hero.id}}
+    </div>
+  </div>
+</div>

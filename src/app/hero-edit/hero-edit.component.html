@@ -1,0 +1,20 @@
+<div *ngIf="hero">
+  <h3>{{hero.name}} Details!</h3>
+  <div class="ui form">
+    <div class="disabled field">
+      <label>ID : </label>
+      <input type="text" readonly="readonly" value="{{hero.id}}">
+    </div>
+    <div class="field" [ngClass]="{error: !hero.name}">
+      <label>Name : </label>
+      <input #name="ngModel" [(ngModel)]="hero.name" placeholder="name" required>
+      <div *ngIf="name.errors" class="ui error message" style="display: block">
+        <div [hidden]="!name.errors.required">
+          Name is required
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <button (click)="goBack()" class="ui button">Back</button>
+</div>
